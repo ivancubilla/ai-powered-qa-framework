@@ -1,0 +1,36 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps chromium
+      
+    # Acá usamos el tag @smoke para que la CI vuele (solo corre los tests críticos)
+    - name: Run Playwright tests
+      run: npx playwright test --grep @smoke
+      
+    # if: always() asegura que suba el reporte incluso si los tests fallan (vital para debuggear)
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
