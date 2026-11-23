@@ -1,2 +1,5 @@
-# ai-powered-qa-framework
-Playwright + AI agents + MCP + CI sharding. QA framework demonstrating AI-assisted test generation and healing.
+# AI-Powered QA Framework
+
+[![Playwright Tests](https://github.com/ivancubilla/ai-powered-qa-framework/actions/workflows/playwright.yml/badge.svg)](https://github.com/ivancubilla/ai-powered-qa-framework/actions/workflows/playwright.yml)
+
+Automation testing framework built with Playwright, TypeScript, and AI-assisted workflows.
