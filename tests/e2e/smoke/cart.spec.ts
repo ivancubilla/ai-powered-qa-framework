@@ -1,8 +1,7 @@
 import { test, expect } from '@playwright/test';
-// Ajustá la ruta si tu archivo está en tests/e2e/smoke/ (3 niveles) o tests/e2e/ (2 niveles)
-import { LoginPage } from '../src/pages/LoginPage';
-import { InventoryPage } from '../src/pages/InventoryPage';
-import { CartPage } from '../src/pages/CartPage';
+import { LoginPage } from '../../../src/pages/LoginPage';
+import { InventoryPage } from '../../../src/pages/InventoryPage';
+import { CartPage } from '../../../src/pages/CartPage';
 
 test.describe('Shopping cart @regression', () => {
   test('should add Sauce Labs Backpack to the cart and verify content', async ({ page }) => {

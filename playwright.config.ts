@@ -11,7 +11,7 @@ export default defineConfig({
   /* Workers por defecto: local usa la mitad de tus núcleos, CI usa 1 */
   workers: process.env.CI ? 1 : undefined,
   /* Reporteros: HTML para ver en local y CI */
-  reporter: [['html', { open: 'never' }], ['list']],
+  reporter: process.env.CI ? 'blob' : [['html', { open: 'never' }], ['list']],
   
   use: {
     baseURL: 'https://www.saucedemo.com',
